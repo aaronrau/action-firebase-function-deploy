@@ -134,7 +134,7 @@ export async function deployPreview(
 
   const deploymentText = await execWithCredentials(
     [
-      "hosting:channel:deploy",
+      "functions:channel:deploy",
       channelId,
       ...(target ? ["--only", target] : []),
       ...(expires ? ["--expires", expires] : []),
@@ -158,7 +158,7 @@ export async function deployProductionSite(
   const { projectId, target, firebaseToolsVersion } = productionDeployConfig;
 
   const deploymentText = await execWithCredentials(
-    ["deploy", "--only", `hosting${target ? ":" + target : ""}`],
+    ["deploy", "--only", `functions${target ? ":" + target : ""}`],
     projectId,
     gacFilename,
     { firebaseToolsVersion }
